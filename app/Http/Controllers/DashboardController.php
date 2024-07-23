@@ -17,7 +17,7 @@ class DashboardController extends Controller
     public function index()
     {
         return view('dashboard', [
-            'dataTamu' => DataTamu::all(),
+            'dataTamu' => DataTamu::whereMonth('created_at', Carbon::now())->get(),
         ]);
     }
 

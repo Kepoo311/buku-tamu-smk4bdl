@@ -14,18 +14,64 @@
 <body>
     @include('fragments.header')
     <main id="body-home" class="header">
-        <div class="header-container min-h-screen flex flex-col md:flex-row-reverse items-center px-10 container m-auto">
+        <div class="header-container min-h-screen flex flex-col-reverse md:flex-row-reverse items-center px-10 container m-auto">
             <div class="px-8 py-6 w-full md:w-3/6 mt-20 md:mt-1">
-                <img src="{{asset('img/undraw_date_picker_re_r0p8.svg')}}" class="w-full" alt="">
+                <form id="form_list" action="/add/data" method="POST" enctype="multipart/form-data">
+                    @csrf
+
+                  <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                          Nama lengkap
+                      </label>
+                      <input name="nama_lengkap"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          id="Nama_lengkap" type="text" placeholder="Nama lengkap" required>
+                  </div>
+                  <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                          Instansi
+                      </label>
+                      <input name="asal_tamu"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          id="asal_tamu" type="text" placeholder="Ex. SMK 4/Pt. Mencari jodoh" required>
+                  </div>
+                  <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                          Bertemu
+                      </label>
+                      <input name="menemui"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          id= "menemui" type="text" placeholder="Ex. Pak John" required>
+                  </div>
+                  <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                          Keperluan
+                      </label>
+                      <textarea name="alasan" placeholder="Alasan saya adalah..."
+                          class="resize-none rounded-md shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          required></textarea>
+                  </div>
+                  <div class="mb-4">
+                    <p class="text-sm font-bold">Ambil Foto:</p>
+                    <input type="hidden" id="photoInput" name="foto_tamu">
+                    <video id="video" width="320" height="240" autoplay></video>
+                    <canvas id="canvas" width="320" height="240" style="display: none;"></canvas>
+                    <img id="photo" src="#" alt="Your photo" style="display: none;">
+                  </div>
+                  <button type="button" id="captureBtn"
+                  class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Ambil
+                  Foto</button>
+              <button type="button" id="submitBtn" data-bs-dismiss="modal"
+                  class="hidden px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Kirim</button>
+                </form>
+
             </div>
-            <div class="h-full w-full md:w-3/6">
+            <div class="h-full w-full mt-24 md:mt-0 md:w-3/6">
                 <h1 id="typed" class="text-2xl mt-2 md:mt-0 sm:text-4xl md:text-6xl font-bold leading-tight">
                 </h1>
                 <p class="text-gray-600 mb-6 mt-2">Terima kasih atas kunjungan Anda ke SMK 4. Silakan catat kehadiran
                     Anda.</p>
-                <button onclick="modalInput()"
-                    class="px-6 py-2 text-sm font-semibold text-white bg-purple-600 mr-2 rounded-md">Catat
-                    Kehadiran</button>
+                <p class="mx-40 text-xl font-bold">Terkoneksi dengan pusat</p>
             </div>
 
         </div>
@@ -33,12 +79,6 @@
     {{-- modal start --}}
     <div class="hidden" id="modalList">
         @include('fragments.modal.modal-list-tamu')
-    </div>
-    <div class="hidden" id="modalInput">
-        @include('fragments.modal.modal-input')
-    </div>
-    <div class="hidden" id="modalCam">
-        @include('fragments.modal.modal-cam')
     </div>
     {{-- modal end --}}
 
@@ -48,6 +88,20 @@
     <script src="{{asset('js/modal.js')}}"></script>
     <script src="{{asset('js/validasiForm.js')}}"></script>
     <script src="{{asset('js/ambil_foto.js')}}"></script>
+    <script>
+        navigator.mediaDevices
+        .getUserMedia({
+            video: true,
+        })
+        .then(function (stream) {
+            var video = document.getElementById("video");
+            video.srcObject = stream;
+            video.play();
+        })
+        .catch(function (err) {
+            console.log("Gagal mengakses kamera: " + err);
+        });
+    </script>
     <script>
         const nav = document.getElementById("nav");
         const menu = document.querySelector(".menu")

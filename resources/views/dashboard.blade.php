@@ -32,6 +32,7 @@
                 <button type="submit" class="px-6 py-2 w-20 h-10 text-sm font-semibold text-white bg-purple-600 mr-2 rounded-md">Filter</button>
         </form>
 
+        <p class="mx-2 text-xl">*Default hanya menampilkan tamu hari ini</p>
 
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -81,7 +82,7 @@
             </form>
             <form action="{{ route('data-tamu.export-month') }}" method="POST">
                 @csrf
-                <button type="submit" class="px-6 py-2 text-sm font-semibold text-white bg-purple-600 rounded-md">Unduh data bulan ini</button>
+                <button type="submit" class="px-6 py-2 text-sm font-semibold text-white bg-purple-600 rounded-md">Unduh data bulan {{date('M')}}</button>
             </form>
         </div>
     </div>
