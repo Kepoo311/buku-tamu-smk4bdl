@@ -14,64 +14,64 @@
 <body>
     @include('fragments.header')
     <main id="body-home" class="header">
-        <div class="header-container min-h-screen flex flex-col-reverse md:flex-row-reverse items-center px-10 container m-auto">
+        <div class="header-container min-h-screen flex flex-col-reverse md:flex-row-reverse items-center px-10">
             <div class="px-8 py-6 w-full md:w-3/6 mt-20 md:mt-1">
                 <form id="form_list" action="/add/data" method="POST" enctype="multipart/form-data">
                     @csrf
 
                   <div class="mb-4">
-                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                      <label class="block text-black text-sm font-bold mb-2" for="username">
                           Nama lengkap
                       </label>
                       <input name="nama_lengkap"
-                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none rounded w-full py-2 px-3 bg-[#6cd1f5] placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
                           id="Nama_lengkap" type="text" placeholder="Nama lengkap" required>
                   </div>
                   <div class="mb-4">
-                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                      <label class="block text-black text-sm font-bold mb-2" for="username">
                           Instansi
                       </label>
                       <input name="asal_tamu"
-                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-[#6cd1f5] placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
                           id="asal_tamu" type="text" placeholder="Ex. SMK 4/Pt. Mencari jodoh" required>
                   </div>
                   <div class="mb-4">
-                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                      <label class="block text-black text-sm font-bold mb-2" for="username">
                           Bertemu
                       </label>
                       <input name="menemui"
-                          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-[#6cd1f5] placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
                           id= "menemui" type="text" placeholder="Ex. Pak John" required>
                   </div>
                   <div class="mb-4">
-                      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                      <label class="block text-black text-sm font-bold mb-2" for="username">
                           Keperluan
                       </label>
                       <textarea name="alasan" placeholder="Alasan saya adalah..."
-                          class="resize-none rounded-md shadow appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          class="resize-none rounded-md shadow appearance-none border w-full py-2 px-3 bg-[#6cd1f5] placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
                           required></textarea>
                   </div>
                   <div class="mb-4">
-                    <p class="text-sm font-bold">Ambil Foto:</p>
+                    <p class="text-sm font-bold text-black">Ambil Foto:</p>
                     <input type="hidden" id="photoInput" name="foto_tamu">
                     <video id="video" width="320" height="240" autoplay></video>
                     <canvas id="canvas" width="320" height="240" style="display: none;"></canvas>
                     <img id="photo" src="#" alt="Your photo" style="display: none;">
                   </div>
                   <button type="button" id="captureBtn"
-                  class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Ambil
+                  class="px-6 py-2.5 bg-[#6cd1f5] text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Ambil
                   Foto</button>
               <button type="button" id="submitBtn" data-bs-dismiss="modal"
-                  class="hidden px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Kirim</button>
+                  class="hidden px-6 py-2.5 bg-blue-600 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Kirim</button>
                 </form>
 
             </div>
-            <div class="h-full w-full mt-24 md:mt-0 md:w-3/6">
-                <h1 id="typed" class="text-2xl mt-2 md:mt-0 sm:text-4xl md:text-6xl font-bold leading-tight">
+            <div class="min-h-screen w-96 mt-24 md:mt-0 md:w-3/6 samping flex justify-center items-center flex-col">
+                <h1 id="typed" class="text-2xl mt-2 md:mt-0 sm:text-4xl md:text-6xl text-white font-bold leading-tight">
                 </h1>
-                <p class="text-gray-600 mb-6 mt-2">Terima kasih atas kunjungan Anda ke SMK 4. Silakan catat kehadiran
+                <p class="text-white mb-6 mt-2">Terima kasih atas kunjungan Anda ke SMK 4. Silakan catat kehadiran
                     Anda.</p>
-                <p class="mx-40 text-xl font-bold">Terkoneksi dengan pusat</p>
+                <p class="text-xl font-bold text-white">Terkoneksi dengan pusat</p>
             </div>
 
         </div>
@@ -103,20 +103,6 @@
         });
     </script>
     <script>
-        const nav = document.getElementById("nav");
-        const menu = document.querySelector(".menu")
-        window.addEventListener("scroll", () => {
-            let offset = window.pageYOffset;
-            if (offset > 50) {
-                if (!nav.classList.contains("nav-bg-show")) {
-                    nav.classList.add("nav-bg-show")
-                }
-            } else {
-                if (nav.classList.contains("nav-bg-show")) {
-                    nav.classList.remove("nav-bg-show")
-                }
-            }
-        })
 
         const navOpen = () => menu.classList.add("active");
         const navClose = () => menu.classList.remove("active");
