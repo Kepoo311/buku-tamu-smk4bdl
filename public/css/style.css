@@ -4,8 +4,10 @@ body{
     padding: 0;
 }
 
-.samping {
+#body-home {
     background-image: url("../img/smk4.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .subtitle span {
@@ -15,7 +17,7 @@ body{
     height: 3px;
 }
 .nav-bg-show {
-    background: #fff;
+    background: transparent;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 @media (max-width:787px) {

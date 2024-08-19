@@ -13,9 +13,9 @@
 
 <body>
     @include('fragments.header')
-    <main id="body-home" class="header">
+    <main id="body-home" class="header pt-10">
         <div class="header-container min-h-screen flex flex-col-reverse md:flex-row-reverse items-center px-10">
-            <div class="px-8 py-6 w-full md:w-3/6 mt-20 md:mt-1">
+            <div class="px-6 py-4 w-full md:w-3/6 mt-20 rounded-lg shadow-sm border md:mt-1 bg-white">
                 <form id="form_list" action="/add/data" method="POST" enctype="multipart/form-data">
                     @csrf
 
@@ -24,7 +24,7 @@
                           Nama lengkap
                       </label>
                       <input name="nama_lengkap"
-                          class="shadow appearance-none rounded w-full py-2 px-3 bg-[#6cd1f5] placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none rounded w-full py-2 px-3 bg-gray-400 placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
                           id="Nama_lengkap" type="text" placeholder="Nama lengkap" required>
                   </div>
                   <div class="mb-4">
@@ -32,7 +32,7 @@
                           Instansi
                       </label>
                       <input name="asal_tamu"
-                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-[#6cd1f5] placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-400 placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
                           id="asal_tamu" type="text" placeholder="Ex. SMK 4/Pt. Mencari jodoh" required>
                   </div>
                   <div class="mb-4">
@@ -40,7 +40,7 @@
                           Bertemu
                       </label>
                       <input name="menemui"
-                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-[#6cd1f5] placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-400 placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
                           id= "menemui" type="text" placeholder="Ex. Pak John" required>
                   </div>
                   <div class="mb-4">
@@ -48,7 +48,7 @@
                           Keperluan
                       </label>
                       <textarea name="alasan" placeholder="Alasan saya adalah..."
-                          class="resize-none rounded-md shadow appearance-none border w-full py-2 px-3 bg-[#6cd1f5] placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
+                          class="resize-none rounded-md shadow appearance-none border w-full py-2 px-3 bg-gray-400 placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
                           required></textarea>
                   </div>
                   <div class="mb-4">
@@ -59,15 +59,15 @@
                     <img id="photo" src="#" alt="Your photo" style="display: none;">
                   </div>
                   <button type="button" id="captureBtn"
-                  class="px-6 py-2.5 bg-[#6cd1f5] text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Ambil
+                  class="px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md bg-red-600 hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Ambil
                   Foto</button>
               <button type="button" id="submitBtn" data-bs-dismiss="modal"
-                  class="hidden px-6 py-2.5 bg-blue-600 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Kirim</button>
+                  class="hidden px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out ml-1">Kirim</button>
                 </form>
 
             </div>
             <div class="min-h-screen w-96 mt-24 md:mt-0 md:w-3/6 samping flex justify-center items-center flex-col">
-                <h1 id="typed" class="text-2xl mt-2 md:mt-0 sm:text-4xl md:text-6xl text-white font-bold leading-tight">
+                <h1 id="typed" class="text-2xl mt-2 md:mt-0 sm:text-4xl md:text-5xl text-white font-bold leading-tight">
                 </h1>
                 <p class="text-white mb-6 mt-2">Terima kasih atas kunjungan Anda ke SMK 4. Silakan catat kehadiran
                     Anda.</p>

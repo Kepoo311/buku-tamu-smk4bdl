@@ -20,6 +20,7 @@ Route::post('/admin', [DashboardController::class, 'filter'])->middleware(CheckL
 
 Route::post('data-tamu/export-all', [DashboardController::class, 'exportAll'])->name('data-tamu.export-all');
 Route::post('data-tamu/export-month', [DashboardController::class, 'exportMonth'])->name('data-tamu.export-month');
+Route::post('data-tamu/export-date', [DashboardController::class, 'exportDate'])->name('data-tamu.export-date');
 
 
 Route::get('/login', function () {
