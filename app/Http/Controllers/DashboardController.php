@@ -22,6 +22,16 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function delete_data(Request $request) {
+        if($request->id == null){
+            return abort(404, 'Data tidak ditemukan.');
+        } else {
+            $id = $request->id;
+            DataTamu::destroy($id);
+            return redirect()->back()->with('Success','Hapus data berhasil');
+        }
+    }
+
     public function filter(Request $request)
     {
         $date = Carbon::parse($request->date)->format('Y-m-d');

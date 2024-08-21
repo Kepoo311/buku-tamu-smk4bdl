@@ -24,7 +24,7 @@
                           Nama lengkap
                       </label>
                       <input name="nama_lengkap"
-                          class="shadow appearance-none rounded w-full py-2 px-3 bg-gray-400 placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none rounded w-full py-2 px-3 bg-gray-400 text-white placeholder:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
                           id="Nama_lengkap" type="text" placeholder="Nama lengkap" required>
                   </div>
                   <div class="mb-4">
@@ -32,7 +32,7 @@
                           Instansi
                       </label>
                       <input name="asal_tamu"
-                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-400 placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-400 text-white placeholder:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
                           id="asal_tamu" type="text" placeholder="Ex. SMK 4/Pt. Mencari jodoh" required>
                   </div>
                   <div class="mb-4">
@@ -40,7 +40,7 @@
                           Bertemu
                       </label>
                       <input name="menemui"
-                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-400 placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
+                          class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-400 text-white placeholder:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
                           id= "menemui" type="text" placeholder="Ex. Pak John" required>
                   </div>
                   <div class="mb-4">
@@ -48,7 +48,7 @@
                           Keperluan
                       </label>
                       <textarea name="alasan" placeholder="Alasan saya adalah..."
-                          class="resize-none rounded-md shadow appearance-none border w-full py-2 px-3 bg-gray-400 placeholder:text-white leading-tight focus:outline-none focus:shadow-outline"
+                          class="resize-none rounded-md shadow appearance-none border w-full py-2 px-3 bg-gray-400 text-white placeholder:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
                           required></textarea>
                   </div>
                   <div class="mb-4">
@@ -107,8 +107,25 @@
         const navOpen = () => menu.classList.add("active");
         const navClose = () => menu.classList.remove("active");
 
-       
-
+        document.querySelectorAll('#form_list input, #form_list textarea').forEach((input, index, inputs) => {
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      // Periksa apakah elemen saat ini adalah textarea
+      if (input.tagName.toLowerCase() === 'textarea') {
+        // Biarkan Enter membuat baris baru
+        return true;
+      } else {
+        event.preventDefault();  // Mencegah default action untuk Enter pada input
+        const nextInput = inputs[index + 1];
+        if (nextInput) {
+          nextInput.focus();  // Pindah ke input berikutnya
+        } else {
+          console.log('Ini adalah input terakhir');
+        }
+      }
+    }
+  });
+});
 
         var typed = new Typed('#typed', {
             strings: ["Selamat Datang di SMKN 4!",

@@ -1,4 +1,4 @@
-<nav class="w-full px-0 md:px-10 py-3 {{ Request::is('admin') ? '' : 'fixed' }} top-0 left-0 right-0 z-10 nav-bg-show" id="nav">
+<nav class="w-full px-0 md:px-10 py-3 {{ Request::is('admin') ? '' : 'fixed' }} top-0 left-0 right-0 z-10 bg-[rgba(255,255,255,0.3)]" id="nav">
     <div class="flex justify-between items-center container m-auto px-4 md:px-10">
         <a href="#" class="logo text-md md:text-2xl font-bold flex text-purple-600">
             <img class="w-10 h-10" src="{{asset('img/logosmk.png')}}" alt="">
@@ -15,10 +15,10 @@
                 </button>
                 <ul class="flex">
                     <li><a href="#"
-                            class="px-4 py-2 mx-1 text-md font-semibold text-black hover:text-purple-600">Home</a>
+                            class="px-4 py-2 mx-1 text-md font-semibold text-black hover:text-purple-600 bg-white rounded-md">Home</a>
                     </li>
                     <li><a href="#"
-                            class="px-4 py-2 mx-1 text-md font-semibold text-black hover:text-purple-600"
+                            class="px-4 py-2 mx-1 text-md font-semibold text-black hover:text-purple-600 bg-white rounded-md"
                             onclick="modalList()">List tamu</a></li>
                 </ul>
             @endif

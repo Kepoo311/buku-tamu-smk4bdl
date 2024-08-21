@@ -57,6 +57,9 @@
                         <th scope="col" class="px-6 py-3">
                             Tanggal
                         </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +74,9 @@
                             <td class="px-6 py-4">{{ $tamu->menemui }}</td>
                             <td class="px-6 py-4">{{ $tamu->alasan }}</td>
                             <td class="px-6 py-4">{{ \Carbon\Carbon::parse($tamu->created_at)->format('d-m-Y') }}</td>
+                            <td class="px-6 py-4">
+                                <a class="text-white bg-red-500 rounded-lg p-2 hover:bg-red-600" href="/admin/delete?id={{ $tamu->id }}" onclick="return confirm('Are you sure you want to delete this data?')">Delete data</a>
+                            </td>
                         </tr>
                     @empty
                         <tr>
@@ -131,6 +137,7 @@
 
         let emptyData = {{ session()->has('emptyData') ? 1 : 0 }}
         let emptyDataMsg = @json(session('emptyData'))
+        
 
         const Toast = Swal.mixin({
             toast: true,
@@ -148,6 +155,16 @@
             Toast.fire({
                 icon: 'error',
                 title: emptyDataMsg,
+            })
+        }
+
+        let Success = {{ session()->has('Success') ? 1 : 0 }}
+        let SuccessMsg = @json(session('Success'))
+
+        if (Success) {
+            Toast.fire({
+                icon: 'success',
+                title: SuccessMsg,
             })
         }
     </script>

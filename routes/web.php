@@ -15,6 +15,7 @@ Route::get('/', [HomeControler::class,'index'])->name('home');
 Route::post('/add/data',[ListTamuController::class,'addData']);
 
 Route::get('/admin',[DashboardController::class,'index'])->middleware(CheckLogin::class)->name('dash');
+Route::get('/admin/delete',[DashboardController::class,'delete_data'])->middleware(CheckLogin::class);
 
 Route::post('/admin', [DashboardController::class, 'filter'])->middleware(CheckLogin::class)->name('data-tamu.filter');
 

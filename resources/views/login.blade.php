@@ -15,7 +15,7 @@
     <section class="flex w-full h-dvh justify-center items-center">
         <div class="w-[35rem] h-fit bg-white shadow-lg border rounded-lg flex flex-col">
             <h1 class="text-center font-semibold text-3xl mt-2">Login</h1>
-            <form action="/login" method="POST">
+            <form action="/login" method="POST" >
                 @csrf
                 <div class="mb-3 pt-10 px-7">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
