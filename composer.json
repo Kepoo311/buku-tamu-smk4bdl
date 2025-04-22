@@ -9,7 +9,8 @@
         "intervention/image": "^3.6",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "phpoffice/phpspreadsheet": "^2.1"
+        "phpoffice/phpspreadsheet": "^2.1",
+        "recca0120/laravel-erd": "^0.1.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
